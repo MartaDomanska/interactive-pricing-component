@@ -1,24 +1,31 @@
 import { useState } from "react";
 import "./App.css";
+import { Header } from "./components/Header/Header";
 import { Features } from "./components/Features/Features";
 import { Range } from "./components/Range/Range";
-import { Switch } from "./components/Switch/Switch";
 
 export const App = () => {
-  const [views, setViews] = useState(100)
+  const [views, setViews] = useState("100K");
+  const [price, setPrice] = useState(16);
+  const [isYearlyBilling, setIsYearlyBilling] = useState(false);
+
+  const handleActive = () => {
+    setIsYearlyBilling(!isYearlyBilling);
+  };
+
   return (
     <div className="slider-card">
-      <header>
-        <h1>Simple, traffic-based pricing</h1>
-        <p>Sign-up for our 30-day trial. No credit card required.</p>
-      </header>
-      <div className="slider-container">
-        <Range views={views} amount={0} handleClick={() => {
-          setViews(views + 4)
-        }} />
-        <Switch />
+      <Header />
+      <form className="slider-container">
+        <Range
+          views={views}
+          price={price}
+          yearlyBilling={isYearlyBilling} 
+          handleActive={handleActive} 
+          handleViews={() => {}} 
+        />
         <Features />
-      </div>
+      </form>
     </div>
   );
 };
