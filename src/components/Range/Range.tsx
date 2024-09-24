@@ -32,9 +32,19 @@ export const Range = () => {
           {selectedRange ? selectedRange.views : null}
           <span> pageviews</span>
         </span>
-        <span id="price">
-          ${discountedPrice.toFixed(2)}
-          <span>/month</span>
+        <span className="views-price">
+          $
+          {isYearlyBilling ? (
+            <span className="price-detail">
+              {discountedPrice.toFixed(2)}
+              <span>/ year</span>
+            </span>
+          ) : (
+            <span className="price-detail">
+              {price.toFixed(2)}
+              <span>/ month</span>
+            </span>
+          )}
         </span>
       </div>
       <div className="slider-rule">
@@ -48,12 +58,15 @@ export const Range = () => {
       </div>
       <div className="slider-switch">
         <p>Monthly Billing</p>
-        <div
-          className={`switch-toggle ${isYearlyBilling ? "active" : ""}`}
-          onClick={handleActive}
-        >
-          <div className="switch-circle"></div>
-        </div>
+        <label className="switch">
+          <input
+            type="checkbox"
+            role="switch"
+            className={`switch-toggle ${isYearlyBilling ? "active" : ""}`}
+            onClick={handleActive}
+          />
+          <span className="slider"></span>
+        </label>
         <p>Yearly Billing</p>
         <span className="desktop-discount">25% discount</span>
         <span className="mobile-discount">25%</span>

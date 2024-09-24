@@ -126,7 +126,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     bottom 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.slider {
+/* .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -148,7 +148,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-}
+} */
 
 .slider-container {
   max-width: 1440px;
@@ -175,31 +175,57 @@ input[type="range"]::-webkit-slider-thumb:active {
   margin: 40px 0;
 }
 
-.switch-toggle {
-  height: 22px;
-  width: 43px;
-  padding: 4px;
-  display: flex;
-  justify-content: flex-start;
-  background-color: var(--light-grayish-blue-toggle);
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 1.8em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
-  border-radius: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-grayish-blue-toggle);
+  border: 1px solid var(--light-grayish-blue-toggle);
+  transition: .4s;
+  border-radius: 30px;
 }
 
-.switch-toggle:hover {
-  background-color: var(--strong-cyan);
-}
-
-.switch-toggle.active {
-  justify-content: flex-end;
-}
-
-.switch-circle {
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.27em;
+  bottom: 0.25em;
   background-color: var(--white);
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--strong-cyan);
+  border: 1px solid var(--strong-cyan);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--strong-cyan);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.4em);
+  background-color: #fff;
 }
 
 .slider-switch p {
@@ -214,7 +240,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   display: none;
 }
 
-#price {
+.views-price {
   color: var(--dark-desaturated-blue);
   font-size: 40px;
   font-weight: 800;
@@ -222,8 +248,15 @@ input[type="range"]::-webkit-slider-thumb:active {
   display: flex;
 }
 
-#price span {
-  font-size: 13px;
+.views-price .price-detail {
+  display: flex;
+  align-items: center;
+}
+
+.views-price .price-detail span {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--grayish-blue);
   display: inline-block;
   margin-left: 10px;
