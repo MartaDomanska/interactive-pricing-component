@@ -23,7 +23,7 @@ export const Range = () => {
 
   const selectedRange = viewRanges[views];
   const price = selectedRange ? selectedRange.price : 0;
-  const discountedPrice = isYearlyBilling ? price * 0.75 : price;
+  const discountedPrice = isYearlyBilling ? price * 0.75 * 12 : price;
 
   return (
     <div>
