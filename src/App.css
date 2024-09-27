@@ -38,6 +38,10 @@ body {
   background-position: top;
 }
 
+.container {
+  max-width: 1440px;
+}
+
 header {
   position: relative;
 }
@@ -105,19 +109,7 @@ input[type="range"]::-webkit-slider-thumb {
   transition: background 0.3s ease-in-out;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: var(--light-blue) 0px 0px 0px 8px;
-}
-
-input[type="range"]::-webkit-slider-thumb:active {
-  box-shadow: var(--light-blue) 0px 0px 0px 11px;
-  transition: box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    left 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    bottom 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
 .slider-container {
-  max-width: 1440px;
   background-color: var(--white);
   margin-top: 3em;
   padding: 35px;
@@ -164,7 +156,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   bottom: 0;
   background-color: var(--light-grayish-blue-toggle);
   border: 1px solid var(--light-grayish-blue-toggle);
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 30px;
 }
 
@@ -177,7 +169,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   left: 0.27em;
   bottom: 0.25em;
   background-color: var(--white);
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -286,12 +278,71 @@ input:checked + .slider:before {
   list-style-position: inside;
 }
 
-@media (max-width: 767px) {
+br {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .container {
+    margin: 0 20px;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+
   .desktop-discount {
     display: none;
   }
 
   .mobile-discount {
     display: block;
+  }
+
+  header {
+    margin-top: 50px;
+  }
+
+  br {
+    display: block;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .slider:before {
+    height: 1em;
+    width: 1em;
+  }
+
+  .slider-views {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slider-switch p {
+    font-size: 13px;
+    margin: 0 7px;
+  }
+
+  .switch {
+    font-size: 15px;
+  }
+
+  .slider-features {
+    flex-direction: column;
+  }
+
+  .features-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .list-item {
+    padding: 10px 0;
   }
 }

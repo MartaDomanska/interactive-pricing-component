@@ -69,7 +69,7 @@ export const Range = () => {
         </label>
         <p>Yearly Billing</p>
         <span className="desktop-discount">25% discount</span>
-        <span className="mobile-discount">25%</span>
+        <span className="mobile-discount">- 25%</span>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { Range } from "./components/Range/Range";
 
 export const App = () => {
   return (
-    <div className="slider-card">
+    <div className="slider-card container">
       <Header />
       <form className="slider-container">
         <Range />
