@@ -177,13 +177,8 @@ input:checked + .slider {
   border: 1px solid var(--strong-cyan);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--strong-cyan);
-}
-
 input:checked + .slider:before {
   transform: translateX(1.4em);
-  background-color: #fff;
 }
 
 .slider-switch p {
