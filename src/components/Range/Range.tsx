@@ -70,13 +70,13 @@ export const Range = () => {
       </div>
       <div className="slider-switch">
         <p>Monthly Billing</p>
-        <label className="switch-item">
+        <label className="switch-input">
           <input
             type="checkbox"
             role="switch"
             onClick={handleBillingChange}
           />
-          <span className="slider"></span>
+          <span className="switch-item"></span>
         </label>
         <p>Yearly Billing</p>
         <span className="desktop-discount">25% discount</span>
