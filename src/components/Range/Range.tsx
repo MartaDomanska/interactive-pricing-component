@@ -44,19 +44,11 @@ export const Range = () => {
   return (
     <div>
       <div className="slider-views">
-        <span id="views">
+        <span className="views-container">
           {selectedRange.views}
           <span> pageviews</span>
         </span>
-        <span className="views-price">
-          <span className="price-detail">
-            ${price.toFixed(2)}
-            <span>/ {isYearlyBilling ? "year" : "month"}</span>
-          </span>
-        </span>
-      </div>
-      <div className="slider-rule">
-        <input
+        <input className="views-range"
           type="range"
           min="1"
           max={viewsLength}
@@ -69,10 +61,16 @@ export const Range = () => {
             , var(--light-grayish-blue-toggle) ${rangeInputProcent}%`,
           }}
         />
+        <span className="views-price">
+          <span className="price-detail">
+            ${price.toFixed(2)}
+            <span>/ {isYearlyBilling ? "year" : "month"}</span>
+          </span>
+        </span>
       </div>
       <div className="slider-switch">
         <p>Monthly Billing</p>
-        <label className="switch">
+        <label className="switch-item">
           <input
             type="checkbox"
             role="switch"
